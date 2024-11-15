@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'screens/create_account_2.dart';
 import 'screens/screens.dart';
 
 void main() {
@@ -15,12 +14,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TableTap',
       theme: ThemeData(
+        fontFamily: 'Poppins',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: const LoginScreen(),
-      
-    
     );
   }
 }
