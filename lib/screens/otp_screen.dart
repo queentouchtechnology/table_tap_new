@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class OtpScreen extends StatelessWidget {
+  const OtpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +22,20 @@ class LoginScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Login',
+                        'Create an account',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 48,
-                          // fontFamily: GoogleFonts.poppins().fontFamily,
+                          fontSize: 40,
                           fontWeight: FontWeight.w900,
+                          letterSpacing: -0.5,
                         ),
+                        textAlign: TextAlign.center,
                       ),
-                      // const SizedBox(height: 5),
                       Text(
                         'Welcome to the app',
-                        textScaler: const TextScaler.linear(1.2),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 14,
-                          fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -74,27 +71,38 @@ class LoginScreen extends StatelessWidget {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30)
-                        .copyWith(bottom: 30),
+                        .copyWith(bottom: 10),
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset(
-                              'assets/images/half-circle.png',
-                              width: 100,
+                            Transform.translate(
+                              offset: Offset(0, -50),
+                              child: Image.asset(
+                                'assets/images/securityicon.png',
+                                width: 100,
+                              ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 2),
                         Text(
-                          'Enter your credentials',
-                          textScaler: const TextScaler.linear(1.2),
+                          'OTP Verification',
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 239, 42, 57),
-                            fontSize: 16,
-                            fontFamily: 'Poppins',
+                            color: const Color(0xffef2a39),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          'Check your identity. Choose your OTP verification technique.',
+                          style: TextStyle(
+                            color: const Color.fromARGB(100, 0, 0, 0),
+                            fontSize: 10,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
@@ -103,92 +111,58 @@ class LoginScreen extends StatelessWidget {
                           child: SingleChildScrollView(
                             child: Column(
                               children: [
-                                const CredentialInput(
-                                  hintText: 'Email',
-                                  icon: Icons.person,
+                                const SizedBox(height: 10),
+                                CustomButton(
+                                  text: 'Phone Number',
+                                  subText: 'Verify with mobile number',
+                                  icon: Icons.call,
+
+                                  onPressed: () {
+                                    print('Phone verification button clicked');
+                                  },
+                                  backgroundColor: Colors.white,
+                                  // borderColor: Colors.red,
+                                  // iconBackgroundColor: const Color(0xfff32121),
+
+                                  borderColor:
+                                      const Color.fromARGB(100, 113, 99, 97),
+                                  iconBackgroundColor:
+                                      const Color.fromARGB(100, 113, 99, 97),
                                 ),
                                 const SizedBox(height: 20),
-                                const CredentialInput(
-                                  hintText: 'Password',
-                                  icon: Icons.lock,
-                                  isPassword: true,
-                                ),
-                                const SizedBox(height: 10),
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: TextButton(
-                                    onPressed: () {
-                                      print('forgot password clicked');
-
-                                      // Navigate to the SignUpScreen
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                ForgotPasswordScreen()),
-                                      );
-                                    },
-                                    style: TextButton.styleFrom(
-                                      overlayColor: Colors.transparent,
-                                      foregroundColor: Colors.black,
-                                      textStyle: const TextStyle(
-                                        decoration: TextDecoration.none,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w300,
-                                      ),
-                                    ),
-                                    child: const Text('Forgot Password'),
-                                  ),
+                                CustomButton(
+                                  text: 'Email',
+                                  subText: 'Verify with Email',
+                                  icon: Icons.mail,
+                                  onPressed: () {
+                                    print('Email verification button clicked');
+                                  },
+                                  backgroundColor: Colors.white,
+                                  borderColor:
+                                      const Color.fromARGB(100, 113, 99, 97),
+                                  iconBackgroundColor:
+                                      const Color.fromARGB(100, 113, 99, 97),
                                 ),
                                 const SizedBox(height: 30),
                                 FilledButton(
                                   onPressed: () {
-                                    print('login clicked');
+                                    print('Sign Up clicked');
                                   },
                                   style: FilledButton.styleFrom(
                                     elevation: 0,
                                     fixedSize: const Size(double.infinity, 60),
                                     minimumSize:
                                         const Size(double.infinity, 60),
+                                    backgroundColor: const Color(0xffc9151e),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
-                                      side: BorderSide.none,
                                     ),
-                                    backgroundColor: const Color(0xffc9151e),
                                   ),
                                   child: const Text(
-                                    'Login',
+                                    'Sign Up',
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 30),
-                                FilledButton.icon(
-                                  onPressed: () {
-                                    print('login with google clicked');
-                                  },
-                                  icon: Image.asset(
-                                    'assets/images/google-G-icon.png',
-                                  ),
-                                  style: FilledButton.styleFrom(
-                                    elevation: 0,
-                                    fixedSize: const Size(double.infinity, 60),
-                                    minimumSize:
-                                        const Size(double.infinity, 60),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      side: BorderSide.none,
-                                    ),
-                                    backgroundColor: Colors.grey.shade200,
-                                  ),
-                                  label: const Text(
-                                    'Login with Google',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black,
                                     ),
                                   ),
                                 ),
@@ -197,22 +171,13 @@ class LoginScreen extends StatelessWidget {
                                   alignment: Alignment.center,
                                   child: TextButton(
                                     onPressed: () {
-                                      print('new user? sign up clicked');
-
-                                      // Navigate to the SignUpScreen
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                CreateAccountScreen()),
-                                      );
+                                      print('New user? Sign Up clicked');
                                     },
                                     style: TextButton.styleFrom(
                                       overlayColor: Colors.transparent,
                                       foregroundColor: Colors.black,
                                       textStyle: const TextStyle(
-                                        decoration: TextDecoration.none,
-                                        color: Colors.black,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.w300,
                                       ),
                                     ),
@@ -220,16 +185,13 @@ class LoginScreen extends StatelessWidget {
                                       text: const TextSpan(
                                         text: 'New user? ',
                                         style: TextStyle(
-                                          fontSize: 16,
                                           color: Colors.black,
                                         ),
                                         children: [
                                           TextSpan(
                                             text: 'Sign Up',
                                             style: TextStyle(
-                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
-                                              color: Colors.black,
                                             ),
                                           ),
                                         ],
@@ -246,7 +208,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 50),
             ],
           ),
         ),

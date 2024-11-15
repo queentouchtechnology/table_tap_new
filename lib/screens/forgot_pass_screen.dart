@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:loginscreen2/screens/otp_screen.dart';
+import 'package:loginscreen2/screens/screens.dart';
 
-class CreateAccountScreen extends StatelessWidget {
-  const CreateAccountScreen({super.key});
+class ForgotPasswordScreen extends StatelessWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class CreateAccountScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Create an account',
+                          'Forgot Password',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 40,
@@ -34,7 +35,7 @@ class CreateAccountScreen extends StatelessWidget {
                         ),
                         // const SizedBox(height: 5),
                         Text(
-                          'Welcome to the app',
+                          'Don’t worry, we’ve got you covered.',
                           textScaler: const TextScaler.linear(1.2),
                           style: TextStyle(
                             color: Colors.white,
@@ -90,13 +91,24 @@ class CreateAccountScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 30),
                           Text(
-                            'Enter your credentials',
+                            'OTP Verification',
                             textScaler: const TextScaler.linear(1.2),
                             style: TextStyle(
                               color: const Color.fromARGB(255, 239, 42, 57),
                               fontSize: 20,
                               // fontFamily: GoogleFonts.poppins().fontFamily,
                               fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          Text(
+                            'Enter your email address below, and we’ll send you a link to reset your password.',
+                            textScaler: const TextScaler.linear(1.2),
+                            style: TextStyle(
+                              color: const Color(0xff40484E),
+                              fontSize: 14,
+                              // fontFamily: GoogleFonts.poppins().fontFamily,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                           const SizedBox(height: 20),
@@ -107,32 +119,11 @@ class CreateAccountScreen extends StatelessWidget {
                               // const SizedBox(height: 20),
                               TextField(
                                 decoration: InputDecoration(
-                                  labelText: 'Enter your user name',
+                                  labelText: 'Enter Your Email',
                                   border: OutlineInputBorder(),
                                 ),
                               ),
-                              const SizedBox(height: 20),
-                              TextField(
-                                decoration: InputDecoration(
-                                  labelText: 'Enter your email',
-                                  border: OutlineInputBorder(),
-                                ),
-                              ),
-                              const SizedBox(height: 20),
-                              TextField(
-                                decoration: InputDecoration(
-                                  labelText: 'Enter your Phone Number',
-                                  border: OutlineInputBorder(),
-                                ),
-                              ),
-                              const SizedBox(height: 20),
-                              TextField(
-                                decoration: InputDecoration(
-                                  labelText: 'Enter your password',
-                                  border: OutlineInputBorder(),
-                                  suffixIcon: Icon(Icons.visibility),
-                                ),
-                              ),
+
                               const SizedBox(height: 30),
                               FilledButton(
                                 onPressed: () {
@@ -142,7 +133,8 @@ class CreateAccountScreen extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => OtpScreen()),
+                                        builder: (context) =>
+                                            ResetPasswordScreen()),
                                   );
                                 },
                                 style: FilledButton.styleFrom(
@@ -156,7 +148,7 @@ class CreateAccountScreen extends StatelessWidget {
                                   backgroundColor: const Color(0xffc9151e),
                                 ),
                                 child: const Text(
-                                  'Sign Up',
+                                  'Continue',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
@@ -208,14 +200,14 @@ class CreateAccountScreen extends StatelessWidget {
                                   ),
                                   child: RichText(
                                     text: const TextSpan(
-                                      text: 'New user? ',
+                                      text: 'Have an account? ',
                                       style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.black,
                                       ),
                                       children: [
                                         TextSpan(
-                                          text: 'Sign Up',
+                                          text: 'Login',
                                           style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold,
